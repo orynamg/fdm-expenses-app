@@ -1,20 +1,17 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import ExpenseMenu from '../components/expense-menu'
 import Navbar from '../components/navbar'
-import Showcase from '../components/showcase'
 import Footer from '../components/footer'
+import TrackComponent from '../components/track-component'
 
 
-const Home: NextPage = () => {
+const Track = () => {
   return (
    <>
       <Navbar></Navbar>
 
-      <Showcase></Showcase>
-
-      <ExpenseMenu></ExpenseMenu>
+      <TrackComponent></TrackComponent>
 
       <Footer></Footer>
 
@@ -22,4 +19,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home;
+export default Track;

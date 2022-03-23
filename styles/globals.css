@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.input-blue {
+    background: #356492;
+}
+
+input::placeholder {
+    color: #C8D2E0;
+}
+
+
+.btn {
+    transition: all 0.5s;
+}
+
+.darker {
+    background-color: #1b4f829a;
+}
+
+.lighter {
+    background-color: #1c4f82c7;
+}
+
+.dark-secondary {
+    background-color: #4e46e5d8;
+}
+
+.showcase {
+    background: linear-gradient(to top, rgba(28, 80, 130, 0.9) 20%, rgba(76, 29, 149, 0.4) 60%), url(/img/business3.jpeg) no-repeat bottom center/cover;
+}
+
+/* .history {
+    background: linear-gradient(to top, #1c1c1cf5 100%, rgba(15, 1, 53, 0.897) 100%), url(/img/business3.jpeg) no-repeat bottom center/cover;
+
+} */
+
