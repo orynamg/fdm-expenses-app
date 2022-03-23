@@ -1,4 +1,36 @@
 const TrackComponent = () => {
+
+    const items = [
+        {
+            "date": "Jul 5, 2021",
+            "expense": 245.00,
+            "ccy": "£",
+            "type": "Hospitality",
+            "card": "Visa****"
+        },
+        {
+            "date": "Apr 29, 2021",
+            "expense": 34.00,
+            "ccy": "£",
+            "type": "Travel",
+            "card": "Visa****"
+        },
+        {
+            "date": "Apr 21, 2021",
+            "expense": 575.00,
+            "ccy": "£",
+            "type": "Travel",
+            "card": "MasterCard****"
+        },
+        {
+            "date": "Mar 26, 2021",
+            "expense": 54.57,
+            "ccy": "£",
+            "type": "Travel",
+            "card": "Visa****"
+        }
+    ]
+
     return (
         <>
             <div className="flex justify-center flex-col items-center h-min-screen history">
@@ -13,39 +45,35 @@ const TrackComponent = () => {
                             <p className=" text-right">Type</p>
                             <p className="ml-20">Card</p>
                         </div>
-                        <div className="w-full h-24 darker mx-0 px-0 grid grid-cols-5 items-center justify-center text-center text-slate-300">
-                            <p className="text-slate-400">Jul 5, 2021</p>
-                            <p className="text-left">£245.00</p>
-                            <p className="text-slate-400 text-right">Hospitality</p>
-                            <p className="ml-20">Visa****</p>
-                            <p className="underline text-sm cursor-pointer hover:opacity-90">View More</p>
-                        </div>
-                        <div className="w-full h-24 lighter mx-0 px-0 grid grid-cols-5 items-center justify-center text-center text-slate-300">
-                            <p className="text-slate-400">Apr 29, 2021</p>
-                            <p className="text-left">£34.00</p>
-                            <p className="text-slate-400 text-right">Travel</p>
-                            <p className="ml-20">Visa****</p>
-                            <p className="underline text-sm cursor-pointer hover:opacity-90">View More</p>
-                        </div>
-                        <div className="w-full h-24 darker mx-0 px-0 grid grid-cols-5 items-center justify-center text-center text-slate-300">
-                            <p className="text-slate-400">Apr 21, 2021</p>
-                            <p className="text-left">£575.00</p>
-                            <p className="text-slate-400 text-right">Travel</p>
 
-                            <p className="ml-20">MasterCard****</p>
-                            <p className="underline text-sm cursor-pointer hover:opacity-90">View More</p>
-                        </div>
-                        <div className="w-full h-24 lighter mx-0 px-0 grid grid-cols-5 items-center justify-center text-center text-slate-300">
-                            <p className="text-slate-400">Mar 26, 2021</p>
-                            <p className="text-left">£54.57</p>
-                            <p className="text-slate-400 text-right">Travel</p>
-                            <p className="ml-20">Visa****</p>
-                            <p className="underline text-sm cursor-pointer hover:opacity-90">View More</p>
-                        </div>
-                       
+                        {
+                            items.map((item, index) => {
+                                if (index % 2 == 0)
+                                    return (
+                                        <div className="w-full h-24 lighter mx-0 px-0 grid grid-cols-5 items-center justify-center text-center text-slate-300">
+                                            <p className="text-slate-400">{item.date}</p>
+                                            <p className="text-left">{item.ccy}{item.expense.toFixed(2)}</p>
+                                            <p className="text-slate-400 text-right">{item.type}</p>
+                                            <p className="ml-20">{item.card}</p>
+                                            <p className="underline text-sm cursor-pointer hover:opacity-90">View More</p>
+                                        </div>
+                                    )
+                                else 
+                                    return (
+                                        <div className="w-full h-24 darker mx-0 px-0 grid grid-cols-5 items-center justify-center text-center text-slate-300">
+                                            <p className="text-slate-400">{item.date}</p>
+                                            <p className="text-left">{item.ccy}{item.expense.toFixed(2)}</p>
+                                            <p className="text-slate-400 text-right">{item.type}</p>
+                                            <p className="ml-20">{item.card}</p>
+                                            <p className="underline text-sm cursor-pointer hover:opacity-90">View More</p>
+                                        </div>
+                                    )
+                            })
+                        }
+
                         <div className="w-full h-10 dark-primary mx-0 px-0 grid grid-cols-1 items-center justify-center text-center text-slate-300 text-sm opacity-90">
                             <p className="underline hover:opacity-90 cursor-pointer">View More Entries</p>
-                        
+
                         </div>
 
                     </div>
