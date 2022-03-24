@@ -17,11 +17,21 @@ const ExpenseMenu = () => {
                                             <label className="label">
                                                 <span className="label-text mb-1">Expense</span>
                                             </label>
-                                            
+
                                             <label className="input-group">
                                                 <span className="w-32 bg-[#0369a1]">Amount</span>
                                                 <input type="text" placeholder="10" className="input input-bordered w-28 bg-neutral"></input>
-                                                <span className="w-20 bg-[#0369a1]">GBP</span>
+                                                <select className="bg-[#0369a1] w-20 text-center no-arrow focus:outline-none">
+                                                    <option selected className=" m">GBP</option>
+                                                    <option>USD</option>
+                                                    <option>EUR</option>
+                                                    <option>JPY</option>
+                                                    <option>AUD</option>
+                                                    <option>CAD</option>
+                                                    <option>CNY</option>
+                                                    <option>INR</option>
+                                                    <option>HKD</option>
+                                                </select>
                                             </label>
                                         </div>
 
@@ -66,7 +76,7 @@ const ExpenseMenu = () => {
 
                                     </form>
                                     <div className="card-actions justify-center">
-                                        <button type="submit" className=" btn w-80 bg-info mt-4  border-transparent border-2 rounded-2xl text-white font-semibold mb-2 hover:opacity-40  mb-[-0.3rem]">Submit</button>
+                                        <button type="submit" className=" btn w-80 bg-info mt-8  border-transparent border-2 rounded-2xl text-white font-semibold mb-2 hover:opacity-40  mb-[-0.3rem]">Submit</button>
                                     </div>
                                 </div>
                             </div>
@@ -81,11 +91,21 @@ const ExpenseMenu = () => {
                                             <label className="label">
                                                 <span className="label-text">Expense</span>
                                             </label>
-                                            
+
                                             <label className="input-group py-1">
                                                 <span className="w-32 bg-secondary">Amount</span>
                                                 <input type="text" placeholder="10" className="input bg-neutral input-bordered w-28"></input>
-                                                <span className="w-20 bg-secondary">GBP</span>
+                                                <select className="bg-secondary w-20 text-center no-arrow focus:outline-none">
+                                                    <option selected className=" m">GBP</option>
+                                                    <option>USD</option>
+                                                    <option>EUR</option>
+                                                    <option>JPY</option>
+                                                    <option>AUD</option>
+                                                    <option>CAD</option>
+                                                    <option>CNY</option>
+                                                    <option>INR</option>
+                                                    <option>HKD</option>
+                                                </select>
                                             </label>
                                         </div>
 
@@ -127,16 +147,19 @@ const ExpenseMenu = () => {
                                             <button className="btn bg-secondary border-none outline text-center w-36 hover:opacity-40 ">Attach File</button>
                                         </div>
 
+                                        <p className="text-sm underline cursor-pointer mt-2 hover:opacity-90">Don't have a reciept? Click here.</p>
 
                                     </form>
+
                                     <div className="card-actions justify-center">
-                                    <button type="submit" className=" btn w-80 bg-indigo-600 mt-4  border-transparent border-2  rounded-2xl text-white font-semibold  hover:opacity-40 mb-[-0.3rem]">Submit</button>
+                                        <button type="submit" className=" btn w-80 bg-indigo-600 mt-1  border-transparent border-2  rounded-2xl text-white font-semibold  hover:opacity-40 mb-[-0.3rem]">Submit</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
             </div>
         </>
 
