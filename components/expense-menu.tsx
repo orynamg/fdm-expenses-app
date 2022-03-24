@@ -21,7 +21,7 @@ const ExpenseMenu = () => {
                                             <label className="input-group">
                                                 <span className="w-32 bg-[#0369a1]">Amount</span>
                                                 <input type="text" placeholder="10" className="input input-bordered w-28 bg-neutral"></input>
-                                                <span className="w-20 bg-[#0369a1]">USD</span>
+                                                <span className="w-20 bg-[#0369a1]">GBP</span>
                                             </label>
                                         </div>
 
@@ -85,7 +85,7 @@ const ExpenseMenu = () => {
                                             <label className="input-group py-1">
                                                 <span className="w-32 bg-secondary">Amount</span>
                                                 <input type="text" placeholder="10" className="input bg-neutral input-bordered w-28"></input>
-                                                <span className="w-20 bg-secondary">USD</span>
+                                                <span className="w-20 bg-secondary">GBP</span>
                                             </label>
                                         </div>
 
@@ -122,7 +122,7 @@ const ExpenseMenu = () => {
 
                                         <div className="form-control">
                                             <label className="label">
-                                                <span className="label-text">Add Reciept</span>
+                                                <span className="label-text">Add Reciept (Compulsory)</span>
                                             </label>
                                             <button className="btn bg-secondary border-none outline text-center w-36 hover:opacity-40 ">Attach File</button>
                                         </div>

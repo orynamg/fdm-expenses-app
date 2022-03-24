@@ -19,7 +19,7 @@ const LoginContent = () => {
                 <div>
                     <h1 className="text-white font-bold text-4xl font-sans">FDM Expenses</h1>
                     <p className="text-white mt-1">The most popular corporate expense software</p>
-                    <button type="submit" className="block w-28 bg-white text-indigo-800 mt-4 py-2 rounded-2xl font-bold mb-2">Read More</button>
+                    <button type="submit" className="block w-32 bg-white text-indigo-800 mt-4 py-2 rounded-2xl font-bold mb-2 border-transparent border-2 outline-none hover:opacity-80 hover:bg-white hover:border-secondary btn">Read More</button>
                 </div>
             </div>
             <div className="flex w-1/2 justify-center items-center bg-base">
@@ -38,7 +38,7 @@ const LoginContent = () => {
                         </svg>
                         <input className="pl-2 outline-none bg-base-100 border-none" type="text" name="" id="" placeholder="Password" />
                     </div>
-                    <button type="submit" className=" btn block w-full bg-indigo-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-2 border-transparent border-2 hover:bg-slate-300 hover:text-secondary hover:border-secondary">Login</button>
+                    <button type="submit" className=" btn block w-full bg-indigo-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-2 border-transparent border-2 hover:opacity-80 hover:bg-indigo-600">Login</button>
                     <span className="text-sm ml-2 hover:text-blue-500 cursor-pointer">Forgot Password ?</span>
                 </form>
             </div>
