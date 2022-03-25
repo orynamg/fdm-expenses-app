@@ -3,7 +3,7 @@ const Showcase = () => {
     return (
         <>
 
-            <div className="hero h-[36.1rem] showcase">
+            <div id="showcase"className="hero h-[36.1rem] showcase">
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-lg">
