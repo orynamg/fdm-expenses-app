@@ -14,7 +14,7 @@ const ExpenseMenu = () => {
 
     return (
         <>
-            <div className="hero min-h-screen bg-base-200 mb-10">
+            <div id="addX" className="hero min-h-screen bg-base-200 mb-10">
                 <div className="hero-content text-center">
                     <div className="">
                         <h1 className="text-4xl font-bold my-8">Add Expense</h1>
