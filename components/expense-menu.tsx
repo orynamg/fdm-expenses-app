@@ -12,6 +12,13 @@ const ExpenseMenu = () => {
         }
     } 
 
+    // function TravelOptions(): void {
+    //     var option = document.getElementById('typeSelect')
+    //     if (option != null && option.value == "") {
+
+    //     }
+    // }
+
     return (
         <>
             <div id="addX" className="hero min-h-screen bg-base-200 mb-10">
@@ -49,11 +56,11 @@ const ExpenseMenu = () => {
 
                                         <div className="form-control py-1">
                                             <div className="input-group  ">
-                                                <select className="select select-bordered w-80 bg-neutral">
-                                                    <option disabled selected>Pick category</option>
-                                                    <option>Travel</option>
-                                                    <option>Hospitality</option>
-                                                    <option>Other</option>
+                                                <select id="typeSelect" className="select select-bordered w-80 bg-neutral">
+                                                    <option value="none" disabled selected>Pick category</option>
+                                                    <option  value="" >Travel</option>
+                                                    <option  value="" >Hospitality</option>
+                                                    <option  value="" >Other</option>
                                                 </select>
                                             </div>
                                         </div>

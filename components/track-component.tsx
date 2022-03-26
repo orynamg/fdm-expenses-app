@@ -80,7 +80,7 @@ const TrackComponent = () => {
                                         <div className={"collapse-content w-full h-24 mx-0 px-0 grid grid-cols-5 items-center justify-center text-center text-slate-300 " + ( (index%2===0) ? "lighter" : "darker") } >
                                             <p className="text-slate-400">{item.expense} Expense</p>
                                             <p className="text-left">Appealed: {item.appeal}</p>
-                                            <p className="text-slate-400">Appeal Statement: {item.statement}</p>
+                                            <p className="text-slate-400 text-left">Appeal Statement: {item.statement}</p>
                                             <p className="">Line Manager:  {item.lineManager}</p>
                                             <p className="underline text-sm cursor-pointer hover:opacity-90">View Attachment</p>
                                         </div>
