@@ -6,6 +6,7 @@ const HistoryComponent = () => {
             "amount": 245.00,
             "ccy": "£",
             "status": "Approved",
+            "rejectionStatement": "None",
             "lineManager": "John Hudson",
             "type": "Hospitality",
             "card": "Visa****",
@@ -19,6 +20,7 @@ const HistoryComponent = () => {
             "amount": 34.00,
             "ccy": "£",
             "status": "Approved",
+            "rejectionStatement": "None",
             "lineManager": "John Hudson",
             "type": "Hospitality",
             "card": "Visa****",
@@ -32,6 +34,7 @@ const HistoryComponent = () => {
             "amount": 575.00,
             "ccy": "£",
             "status": "Approved",
+            "rejectionStatement": "None",
             "lineManager": "John Hudson",
             "type": "Hospitality",
             "card": "Visa****",
@@ -45,6 +48,7 @@ const HistoryComponent = () => {
             "amount": 54.57,
             "ccy": "£",
             "status": "Approved",
+            "rejectionStatement": "None",
             "lineManager": "John Hudson",
             "type": "Hospitality",
             "card": "Visa****",
@@ -57,6 +61,7 @@ const HistoryComponent = () => {
             "amount": 54.57,
             "ccy": "£",
             "status": "Approved",
+            "rejectionStatement": "None",
             "lineManager": "John Hudson",
             "type": "Hospitality",
             "card": "Visa****",
@@ -69,6 +74,7 @@ const HistoryComponent = () => {
             "amount": 54.57,
             "ccy": "£",
             "status": "Rejected",
+            "rejectionStatement": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque maiores quisquam voluptas velit accusamus saepe nostrum vitae optio similique aut!",
             "lineManager": "John Hudson",
             "type": "Hospitality",
             "card": "Visa****",
@@ -81,6 +87,7 @@ const HistoryComponent = () => {
             "amount": 54.57,
             "ccy": "£",
             "status": "Rejected",
+            "rejectionStatement": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque maiores quisquam voluptas velit accusamus saepe nostrum vitae optio similique aut!",
             "lineManager": "John Hudson",
             "type": "Hospitality",
             "card": "Mastercard****",
@@ -111,7 +118,11 @@ const HistoryComponent = () => {
 
                         {
                             items.map((item, index) => {
-                                const itemCopy = item;
+                                let appealLabel = item.statement.substring(0, Math.min(100, item.statement.length));
+                                if (appealLabel.length >= 100) {
+                                    appealLabel += "...";
+                                }
+
                                 return (
                                     <div key={index} tabIndex={0} className="collapse collapse-plus">
 
@@ -121,12 +132,12 @@ const HistoryComponent = () => {
                                             <p className="">{item.ccy}{item.amount.toFixed(2)}</p>
 
                                             {(item.status === "Rejected" && item.appeal === "None")
-                                                ? (<p className="text-sm btn btn-outline btn-error btn-neutral btn-sm w-32 normal-case">Add Appeal</p>)
+                                                ? (<a href={"#modal-add-appeal-" + index} className="text-sm btn btn-outline btn-error btn-neutral btn-sm w-32 normal-case">Add Appeal</a>)
                                                 : (<p></p>)
                                             }
 
                                             {(item.status === "Rejected")
-                                                ? (<p className="text-sm btn btn-outline btn-error btn-neutral btn-sm normal-case">Rejection Statement</p>)
+                                                ? (<a href={"#modal-rejection-stmt-" + index} className="text-sm btn btn-outline btn-error btn-neutral btn-sm normal-case">Rejection Statement</a>)
                                                 : (<p></p>)
                                             }
 
@@ -135,24 +146,52 @@ const HistoryComponent = () => {
                                             <p className="">{item.card}</p>
 
                                         </div>
-                                        {/* <input type="checkbox" className="peer"></input>  */}
+                                        {/* <input type="checkbox" className="peer"></input> */}
 
                                         <div className={"collapse-content h-24 mx-0 grid grid-cols-7 items-center justify-center text-center text-slate-300 px-8 " + ((index % 2 === 0) ? "lighter" : "darker")} >
                                             <p className="text-slate-400">{item.expense} Expense</p>
-                                            <a href={"#modal-" + index} className="col-span-3 text-slate-400 text-left hover:underline hover:cursor-pointer pl-14  pr-8">Appeal Statement: {item.statement}</a>
+                                            <a href={"#modal-appeal-stmt-" + index} className="col-span-3 text-slate-400 text-left hover:underline hover:cursor-pointer pl-14  pr-8">Appeal Statement: {appealLabel}</a>
                                             <p className="">Appeal: {item.appeal}</p>
                                             <p className="">Type: {item.type}</p>
                                             <p className="underline text-sm cursor-pointer hover:opacity-90">View Attachment</p>
                                         </div>
 
-                                        <div className="modal" id={"modal-" + index}>
+                                        <div className="modal" id={"modal-appeal-stmt-" + index}>
                                             <div className="modal-box">
                                                 <h3 className="font-bold text-lg">Appeal Statement</h3>
-                                                <p className="py-4">{itemCopy.statement}</p>
-                                                <p className="py-4">{itemCopy.date}</p>
-                                                <p className="py-4">{itemCopy.amount}</p>
+                                                <p className="py-4">{item.statement}</p>
                                                 <div className="modal-action">
                                                     <a href="#" className="btn">Close</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="modal" id={"modal-rejection-stmt-" + index}>
+                                            <div className="modal-box">
+                                                <h3 className="font-bold text-lg">Rejection Statement</h3>
+                                                <p className="py-4">{item.rejectionStatement}</p>
+                                                <div className="modal-action">
+                                                    <a href="#" className="btn">Close</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="modal " id={"modal-add-appeal-" + index}>
+                                            <div className="modal-box p-10">
+                                                <h3 className="font-bold text-2xl text-center mb-6 p-1">Create Appeal</h3>
+                                                <p className="ml-2 mb-3">For Expense Claim:</p>
+                                                <div className="bg-base-200 p-5 rounded-xl">
+                                                    <p className="my-1" >{item.expense} Expense</p>
+                                                    <p className="my-1" >{item.ccy}{item.amount}</p>
+                                                    <p className="my-1" >{item.type}</p>
+                                                    <p className="my-1" >{item.date}</p>
+                                                    <p className="my-1" >{item.card}</p>
+                                                </div>
+                                                <p className="ml-2 my-3">Add Appeal Statement:</p>
+                                                <textarea className="textarea textarea-bordered w-full my-3 h-44 border-slate-400 border-2" placeholder="Text here..."></textarea>
+                                                <div className="modal-action flex flex-rows items-center justofy-center">
+                                                    <a href="#" className="btn">Close</a>
+                                                    <a href="#" type="submit" className="btn btn-primary">Submit</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -169,6 +208,7 @@ const HistoryComponent = () => {
                                 <button className="btn">»</button>
                             </div>
                         </div>
+
                     </div>
                 </div>
 
