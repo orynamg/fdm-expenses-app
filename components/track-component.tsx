@@ -56,33 +56,33 @@ const TrackComponent = () => {
 
                 <div className="card w-4/5 h-7/6 bg-neutral shadow-xl mb-10 rounded-lg">
                     <div className=" p-0">
-                        <div className="w-full h-8 dark-secondary mx-0 px-0 grid grid-cols-5 items-center justify-center text-center text-slate-300 text-sm">
+                        <div className="w-full h-8 dark-secondary mx-0 px-0 grid grid-cols-4 items-center justify-center text-center text-slate-300 text-sm">
                             <p className="">Date</p>
                             <p className="text-left">Expense</p>
                             <p className=" text-right">Type</p>
-                            <p className="ml-20">Card</p>
+                            <p className="">Card</p>
                         </div>
 
                         {
                             items.map((item, index) => 
                                 (
-                                    <div key={index} tabIndex={0} className="collapse collapse-arrow">
+                                    <div key={index} tabIndex={0} className="collapse">
                                        
                                         
-                                        <div className={"w-full h-24 mx-0 px-0 grid grid-cols-4 items-center justify-center text-center text-slate-300 collapse-title " +( (index%2===0) ? "lighter" : "darker") }>
+                                        <div className={"w-full h-20 mx-0 px-0 grid grid-cols-4 items-center justify-center text-center text-slate-300 collapse-title " +( (index%2===0) ? "lighter" : "darker") }>
                                             <p className="text-slate-400">{item.date}</p>
                                             <p className="text-left">{item.ccy}{item.amount.toFixed(2)}</p>
                                             <p className="text-slate-400 text-right">{item.type}</p>
                                             <p className="ml-30">{item.card}</p>
                                         </div>
-                                        {/* <input type="checkbox" className="peer"></input>  */}
+                                        <input type="checkbox" className="peer"></input> 
 
                                         <div className={"collapse-content w-full h-24 mx-0 px-0 grid grid-cols-5 items-center justify-center text-center text-slate-300 " + ( (index%2===0) ? "lighter" : "darker") } >
                                             <p className="text-slate-400">{item.expense} Expense</p>
                                             <p className="text-left">Appealed: {item.appeal}</p>
                                             <p className="text-slate-400 text-left">Appeal Statement: {item.statement}</p>
                                             <p className="">Line Manager:  {item.lineManager}</p>
-                                            <p className="underline text-sm cursor-pointer hover:opacity-90">View Attachment</p>
+                                            <p className="underline text-sm cursor-pointer hover:opacity-90 ml-[-4rem]">View Attachment</p>
                                         </div>
 
                                     </div>
@@ -90,14 +90,8 @@ const TrackComponent = () => {
                             )
                         }
 
-                        <div className="w-full h-10 dark-primary mx-0 px-0 grid grid-cols-5 items-center justify-center text-center text-slate-300 text-sm opacity-90">
-                            {/* Need empty <p></p> for grid to form correctly */}
-                            <p></p> 
-                            <p></p>
-                            <p className="underline hover:opacity-90 cursor-pointer">View More Entries</p>
-                            {/* Need empty <p></p> for grid to form correctly */}
-                            <p></p>
-                            <div className="btn-group">
+                        <div className="w-full h-10 dark-primary mx-0 px-0 flex justify-end text-center text-slate-300 text-sm opacity-90">
+                            <div className="btn-group px-20">
                                 <button className="btn">«</button>
                                 <button className="btn">Page 1</button>
                                 <button className="btn">»</button>
