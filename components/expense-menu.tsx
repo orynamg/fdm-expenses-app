@@ -1,23 +1,8 @@
+import React, { useState } from 'react';
 
 const ExpenseMenu = () => {
 
-    function RevealMoreInfo(): void { 
-        var x = document.getElementById("moreInfo"); 
-        if (x != null) {
-            if ( x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
-    } 
-
-    // function TravelOptions(): void {
-    //     var option = document.getElementById('typeSelect')
-    //     if (option != null && option.value == "") {
-
-    //     }
-    // }
+    const [ontoggle, setToggle] = useState(false) //For more no reciept section
 
     return (
         <>
@@ -57,10 +42,10 @@ const ExpenseMenu = () => {
                                         <div className="form-control py-1">
                                             <div className="input-group  ">
                                                 <select id="typeSelect" className="select select-bordered w-80 bg-neutral">
-                                                    <option value="none" disabled selected>Pick category</option>
-                                                    <option  value="" >Travel</option>
-                                                    <option  value="" >Hospitality</option>
-                                                    <option  value="" >Other</option>
+                                                    <option disabled selected>Pick a category</option>
+                                                    <option >Travel</option>
+                                                    <option >Hospitality</option>
+                                                    <option >Other</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -168,12 +153,12 @@ const ExpenseMenu = () => {
                                             <button className="btn bg-secondary border-none outline text-center w-36 hover:opacity-40 ">Attach File</button>
                                         </div>
 
-                                        <p className="text-sm underline cursor-pointer mt-2 hover:opacity-90" onClick={RevealMoreInfo}>Don't have a reciept? Click here.</p>
+                                        <p className="text-sm underline cursor-pointer mt-2 hover:opacity-90" onClick={() => setToggle(!ontoggle)}>Don't have a reciept? Click here.</p>
 
                                     </form>
 
                                     <div className="card-actions justify-center">
-                                        <button type="submit" className=" btn w-80 bg-indigo-600 mt-1  border-transparent border-2  rounded-2xl text-white font-semibold  hover:opacity-40 mb-[-0.3rem]">Submit</button>
+                                        <button type="submit" className="btn w-80 bg-indigo-600 mt-1  border-transparent border-2  rounded-2xl text-white font-semibold  hover:opacity-40 mb-[-0.3rem]">Submit</button>
                                     </div>
 
                                 </div>
@@ -181,39 +166,45 @@ const ExpenseMenu = () => {
                             </div>
                             {/* First div is needed for flex to work */}
                             <div className="w-full h-1 "></div>
-                            <div id="moreInfo" className="w-full h-96 bg-accent mt-[-8rem] z-50 flex flex-col items-center px-8 pt-3 hidden">
-                                <div className="form-control">
-                                    <label className="label">
-                                        <span className="label-text">More Information</span>
-                                    </label>
+                            {ontoggle && (
+                                <ul>
+                                    <div className="w-full h-96 bg-accent mt-[-8rem] relative z-50 flex flex-col items-center px-8 pt-3">
+                                        <div className="form-control">
+                                            <label className="label">
+                                                <span className="label-text">More Information</span>
+                                            </label>
 
-                                    <label className="input-group py-1">
-                                        <span className="w-32 bg-secondary">Travel Company</span>
-                                        <input type="text" placeholder="WizzAir" className="input  input-bordered w-50 bg-neutral"></input>
-                                    </label>
 
-                                    <label className="input-group py-1">
-                                        <span className="w-32 bg-secondary ">Ticket Number</span>
-                                        <input type="text" placeholder="A6" className="input input-bordered w-50 bg-neutral"></input>
-                                    </label>
+                                            <label className="input-group py-1">
+                                                <span className="w-32 bg-secondary">Travel Company</span>
+                                                <input type="text" placeholder="WizzAir" className="input  input-bordered w-50 bg-neutral"></input>
+                                            </label>
 
-                                    <label className="input-group py-1">
-                                        <span className="w-32 bg-secondary">Time, Date of Departure</span>
-                                        <input type="text" placeholder="hh:mm dd/mm/yy" className="input input-bordered w-50 bg-neutral"></input>
-                                    </label>
+                                            <label className="input-group py-1">
+                                                <span className="w-32 bg-secondary ">Ticket Number</span>
+                                                <input type="text" placeholder="A6" className="input input-bordered w-50 bg-neutral"></input>
+                                            </label>
 
-                                    <label className="input-group py-1">
-                                        <span className="w-32 bg-secondary ">Reference Number</span>
-                                        <input type="text" placeholder="XXXXXXXX" className="input input-bordered w-50 bg-neutral"></input>
-                                    </label>
-                                    
-                                </div>
+                                            <label className="input-group py-1">
+                                                <span className="w-32 bg-secondary">Time, Date of Departure</span>
+                                                <input type="text" placeholder="hh:mm dd/mm/yy" className="input input-bordered w-50 bg-neutral"></input>
+                                            </label>
 
-                                <div className="card-actions justify-center">
-                                        <button type="submit" className=" btn w-80 bg-indigo-600 mt-8  border-transparent border-2  rounded-2xl text-white font-semibold  hover:opacity-40 mb-[-0.3rem]">Submit</button>
-                                </div>
+                                            <label className="input-group py-1">
+                                                <span className="w-32 bg-secondary ">Reference Number</span>
+                                                <input type="text" placeholder="XXXXXXXX" className="input input-bordered w-50 bg-neutral"></input>
+                                            </label>
 
-                            </div>
+                                        </div>
+
+                                        <div className="card-actions justify-center">
+                                            <button type="submit" className=" btn w-80 bg-indigo-600 mt-8  border-transparent border-2  rounded-2xl text-white font-semibold  hover:opacity-40 mb-[-0.3rem]">Submit</button>
+                                        </div>
+
+                                    </div>
+
+                                </ul>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -226,3 +217,15 @@ const ExpenseMenu = () => {
 }
 
 export default ExpenseMenu;
+
+function setToggle(arg0: boolean): void {
+    throw new Error('Function not implemented.');
+}
+function render() {
+    throw new Error('Function not implemented.');
+}
+
+function handleChange(e: React.ChangeEvent<HTMLSelectElement>): void {
+    throw new Error('Function not implemented.');
+}
+

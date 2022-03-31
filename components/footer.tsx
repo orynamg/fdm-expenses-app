@@ -1,4 +1,4 @@
-import { faFileShield} from '@fortawesome/free-solid-svg-icons'
+import { faFileShield } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Footer = () => {
@@ -9,10 +9,10 @@ const Footer = () => {
                 <div>
                     <FontAwesomeIcon icon={faFileShield} className="text-5xl ml-3 mb-2" />
                     <p className="font-bold">
-                        FDM Expenses Ldt. 
+                        FDM Expenses Ldt.
                     </p>
                     <p className="font-bold mt-[-0.2rem]">
-                    Providing reliable tech since 2022
+                        Providing reliable tech since 2022
                     </p>
                     <p>Copyright © 2022 - All right reserved</p>
                 </div>

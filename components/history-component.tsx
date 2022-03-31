@@ -25,8 +25,8 @@ const HistoryComponent = () => {
             "type": "Hospitality",
             "card": "Visa****",
             "expense": "Small",
-            "appeal": "None",
-            "statement": "None"
+            "appeal": "May 6, 2021",
+            "statement": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos libero tempore sapiente perspiciatis iusto vero accusantium vel."
 
         },
         {
@@ -124,7 +124,8 @@ const HistoryComponent = () => {
                                 }
 
                                 return (
-                                    <div key={index} tabIndex={0} className="collapse collapse-plus">
+                                    <div key={index} tabIndex={0} className="collapse collapse-arrow">
+                                        <input type="checkbox"></input>
 
 
                                         <div className={"w-full h-20 mx-0 grid grid-cols-7 items-center justify-center text-center text-slate-300 collapse-title px-8 " + ((index % 2 === 0) ? "lighter" : "darker")}>
@@ -132,12 +133,12 @@ const HistoryComponent = () => {
                                             <p className="">{item.ccy}{item.amount.toFixed(2)}</p>
 
                                             {(item.status === "Rejected" && item.appeal === "None")
-                                                ? (<a href={"#modal-add-appeal-" + index} className="text-sm btn btn-outline btn-error btn-neutral btn-sm w-32 normal-case">Add Appeal</a>)
+                                                ? (<a href={"#modal-add-appeal-" + index} className="text-sm btn btn-outline btn-error btn-neutral btn-sm w-32 normal-case z-10">Add Appeal</a>)
                                                 : (<p></p>)
                                             }
 
                                             {(item.status === "Rejected")
-                                                ? (<a href={"#modal-rejection-stmt-" + index} className="text-sm btn btn-outline btn-error btn-neutral btn-sm normal-case">Rejection Statement</a>)
+                                                ? (<a href={"#modal-rejection-stmt-" + index} className="text-sm btn btn-outline btn-error btn-neutral btn-sm normal-case z-10">Rejection Statement</a>)
                                                 : (<p></p>)
                                             }
 
@@ -146,7 +147,7 @@ const HistoryComponent = () => {
                                             <p className="">{item.card}</p>
 
                                         </div>
-                                        {/* <input type="checkbox" className="peer"></input> */}
+
 
                                         <div className={"collapse-content h-24 mx-0 grid grid-cols-7 items-center justify-center text-center text-slate-300 px-8 " + ((index % 2 === 0) ? "lighter" : "darker")} >
                                             <p className="text-slate-400">{item.expense} Expense</p>
