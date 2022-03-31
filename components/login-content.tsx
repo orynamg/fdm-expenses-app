@@ -1,11 +1,14 @@
 import { auth, provider } from '../lib/firebase';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { useContext } from 'react';
+import { UserContext } from '../lib/context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGoogle } from '@fortawesome/free-brands-svg-icons'
 
 
 
 const LoginContent = () => {
+    const { user, username } = useContext(UserContext)
 
     return (
         <div className="h-screen flex">

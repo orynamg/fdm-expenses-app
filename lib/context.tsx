@@ -1,0 +1,4 @@
+import { createContext } from "react";
+
+export const UserContext: any = createContext({ user: null, username: null });
+

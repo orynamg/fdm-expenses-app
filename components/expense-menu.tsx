@@ -3,6 +3,26 @@ import React, { useState } from 'react';
 const ExpenseMenu = () => {
 
     const [ontoggle, setToggle] = useState(false) //For more no reciept section
+    const [categoryId, setCategoryId] = useState(-1);
+
+    const inputFields: any = [
+        {
+            'Travel Company': 'WizzAir',
+            'Ticket Number': 'A6',
+            'Date of Departure': 'dd/mm/yy',
+            'Time of Departure': 'hh:mm',
+            'Reference Number': 'XXXXXXXX'
+        },
+        {
+            'Hotel Company': 'Marriott',
+            'Room Number': '11B',
+            'Check-in date': 'dd/mm/yy',
+            'Check-out date': 'dd/mm/yy',
+            'Reference Number': 'XXXXXXXX'
+        }
+    ];
+
+
 
     return (
         <>
@@ -116,11 +136,10 @@ const ExpenseMenu = () => {
 
                                         <div className="form-control ">
                                             <div className="input-group  ">
-                                                <select className="select select-bordered w-80 bg-neutral">
-                                                    <option disabled selected>Pick category</option>
-                                                    <option>Travel</option>
-                                                    <option>Hospitality</option>
-                                                    <option>Other</option>
+                                                <select value={categoryId} defaultValue={categoryId} onChange={e => setCategoryId(parseInt(e.target.value))} className="select select-bordered w-80 bg-neutral">
+                                                    <option disabled value={-1}>Pick category</option>
+                                                    <option value={0}>Travel</option>
+                                                    <option value={1}>Hospitality</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -153,7 +172,7 @@ const ExpenseMenu = () => {
                                             <button className="btn bg-secondary border-none outline text-center w-36 hover:opacity-40 ">Attach File</button>
                                         </div>
 
-                                        <p className="text-sm underline cursor-pointer mt-2 hover:opacity-90" onClick={() => setToggle(!ontoggle)}>Don't have a reciept? Click here.</p>
+                                        <p className={"text-sm underline cursor-pointer mt-2 hover:opacity-90 " + ((categoryId < 0) ? "opacity-60 hover:opacity-60" : "")} onClick={() => { if (categoryId >= 0) setToggle(!ontoggle) }}>Don't have a reciept? Click here.</p>
 
                                     </form>
 
@@ -168,32 +187,24 @@ const ExpenseMenu = () => {
                             <div className="w-full h-1 "></div>
                             {ontoggle && (
                                 <ul>
-                                    <div className="w-full h-96 bg-accent mt-[-8rem] relative z-50 flex flex-col items-center px-8 pt-3">
+                                    <div className="w-full h-[27rem] bg-accent mt-[-8rem] relative z-50 flex flex-col items-center px-8 pt-3">
                                         <div className="form-control">
                                             <label className="label">
                                                 <span className="label-text">More Information</span>
                                             </label>
 
+                                            {
+                                                Object.keys(inputFields[categoryId]).map((field: any) => (
+                                                    <label className="input-group py-1">
+                                                        <span className="w-32 bg-secondary">{field}</span>
+                                                        <input type="text" placeholder={inputFields[categoryId][field]} className="input  input-bordered w-50 bg-neutral"></input>
+                                                    </label>)
 
-                                            <label className="input-group py-1">
-                                                <span className="w-32 bg-secondary">Travel Company</span>
-                                                <input type="text" placeholder="WizzAir" className="input  input-bordered w-50 bg-neutral"></input>
-                                            </label>
+                                                )
 
-                                            <label className="input-group py-1">
-                                                <span className="w-32 bg-secondary ">Ticket Number</span>
-                                                <input type="text" placeholder="A6" className="input input-bordered w-50 bg-neutral"></input>
-                                            </label>
 
-                                            <label className="input-group py-1">
-                                                <span className="w-32 bg-secondary">Time, Date of Departure</span>
-                                                <input type="text" placeholder="hh:mm dd/mm/yy" className="input input-bordered w-50 bg-neutral"></input>
-                                            </label>
+                                            }
 
-                                            <label className="input-group py-1">
-                                                <span className="w-32 bg-secondary ">Reference Number</span>
-                                                <input type="text" placeholder="XXXXXXXX" className="input input-bordered w-50 bg-neutral"></input>
-                                            </label>
 
                                         </div>
 

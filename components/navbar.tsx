@@ -1,10 +1,14 @@
 import Link from 'next/link'
 import { faFileShield } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useContext } from 'react'
+import { UserContext } from '../lib/context'
+import { auth, provider } from '../lib/firebase';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 const Navbar = () => {
-    const user = null; //might need in the future
-    const username = null;
+    const { user, username } = useContext(UserContext)
+    console.log(username)
 
     return (
         <>
@@ -47,7 +51,7 @@ const Navbar = () => {
                                             </a></Link>
                                         </li>
                                         <li><a>Settings</a></li>
-                                        <li><a>Logout</a></li>
+                                        <li><SignOutButton></SignOutButton></li>
                                     </ul>
                                 </div>
                             )
@@ -57,6 +61,10 @@ const Navbar = () => {
             </div>
         </>
     );
+}
+
+function SignOutButton() {
+    return (<button onClick={() => auth.signOut()}>Sign Out</button>);
 }
 
 export default Navbar;
