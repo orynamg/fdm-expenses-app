@@ -18,30 +18,30 @@ const Navbar = () => {
 
                 </div>
                 <div className="flex-none">
-                    <ul className="menu menu-horizontal p-0">
-                        <li><Link href="/">Home</Link></li>
-                        <li><a href="/#addX">Add Expense</a></li>
-                        <li><Link href="/track">Track Expenses</Link></li>
-                        <li><Link href="/history">View History</Link></li>
 
-                        {/* User not logged in */}
-                        {
-                            !username && (
+                    {/* User not logged in */}
+                    {
+                        !username && (
+                            <ul className="menu menu-horizontal p-0">
                                 <li><Link href="/login">Login</Link></li>
-                            )
-                        }
-                        {/* User logged in */}
-                        {
-                            username && (
+                            </ul>
+                        )
+                    }
+                    {/* User logged in */}
+                    {
+                        username && (
+                            <ul className="menu menu-horizontal p-0">
+                                <li><Link href="/">Home</Link></li>
+                                <li><a href="/#addX">Add Expense</a></li>
+                                <li><Link href="/track">Track Expenses</Link></li>
+                                <li><Link href="/history">View History</Link></li>
+
                                 <div className="dropdown dropdown-end ml-3">
                                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                         <div className="w-10 rounded-full">
                                             <img src="https://api.lorem.space/image/face?hash=33791" />
                                         </div>
                                     </label>
-
-
-
 
                                     <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
                                         <li>
@@ -54,9 +54,9 @@ const Navbar = () => {
                                         <li><SignOutButton></SignOutButton></li>
                                     </ul>
                                 </div>
-                            )
-                        }
-                    </ul>
+
+                            </ul>
+                        )}
                 </div>
             </div>
         </>

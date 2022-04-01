@@ -4,21 +4,46 @@ import Image from 'next/image'
 import ExpenseMenu from '../components/expense-menu'
 import Navbar from '../components/navbar'
 import Showcase from '../components/showcase'
+import LoginContent from '../components/login-content'
 import Footer from '../components/footer'
+import { useContext } from 'react'
+import { UserContext } from '../lib/context'
+
 
 
 const Home: NextPage = () => {
+  const { user, username } = useContext(UserContext)
+  console.log(username)
+
   return (
-   <>
-      <Navbar></Navbar>
+    <>
 
-      <Showcase></Showcase>
+      {
+        !username && (
+          <>
+            <LoginContent></LoginContent>
 
-      <ExpenseMenu></ExpenseMenu>
+            <Footer></Footer>
+          </>
+        )
+      }
 
-      <Footer></Footer>
+      {
+        username && (
+          <>
+            <Navbar></Navbar>
 
-   </>
+            <Showcase></Showcase>
+
+            <ExpenseMenu></ExpenseMenu>
+
+
+          </>
+
+        )
+      }
+
+    </>
   )
 }
 

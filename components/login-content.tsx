@@ -1,14 +1,15 @@
 import { auth, provider } from '../lib/firebase';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { useContext } from 'react';
-import { UserContext } from '../lib/context';
+import { useContext } from 'react'
+import { UserContext } from '../lib/context'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGoogle } from '@fortawesome/free-brands-svg-icons'
 
 
 
 const LoginContent = () => {
-    const { user, username } = useContext(UserContext)
+    const { user, username } = useContext(UserContext);
+    console.log(username);
 
     return (
         <div className="h-screen flex">
@@ -21,7 +22,7 @@ const LoginContent = () => {
             </div>
             <div className="flex w-1/2 justify-center items-center bg-base flex-col">
                 <form className="bg-base">
-                    <h1 className="text-[#d4d4d4] font-bold text-3xl mb-1">Hello Again!</h1>
+                    <h1 className="text-[#d4d4d4] font-bold text-3xl mb-1">Hello {username}</h1>
                     <p className="text-lg font-normal text-blue-500 mb-7">Welcome Back</p>
                     <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -41,14 +42,12 @@ const LoginContent = () => {
                 <SignInGoogleButton></SignInGoogleButton>
             </div>
         </div>
-
-
-
     );
 }
 
 function SignInGoogleButton() {
     const signInWithGoogle = () => {
+        console.log("hi")
         // await signInWithPopup(auth, provider);
         signInWithPopup(auth, provider)
             .then((result) => {
