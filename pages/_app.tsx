@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [user] = useAuthState(auth);
   const displayName = user?.email;
   console.log(displayName);
-  const [username, setUsername] = useState(displayName || "bleh");
+  const [username, setUsername] = useState("Arina");
   console.log(username);
 
 
@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [user]);
 
   return (
-    <UserContext.Provider value={{ user, displayName }} >
+    <UserContext.Provider value={{ user, username }} >
       <Component {...pageProps} />
     </UserContext.Provider>
   );

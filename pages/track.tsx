@@ -1,22 +1,20 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import Navbar from '../components/navbar'
-import Footer from '../components/footer'
-import TrackComponent from '../components/track-component'
-
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
+import TrackComponent from "../components/track-component";
 
 const Track = () => {
-  return (
-   <>
-      <Navbar></Navbar>
+    return (
+        <>
+            <Navbar></Navbar>
 
-      <TrackComponent></TrackComponent>
+            <TrackComponent></TrackComponent>
 
-      <Footer></Footer>
-
-   </>
-  )
-}
+            <Footer></Footer>
+        </>
+    );
+};
 
 export default Track;

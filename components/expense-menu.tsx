@@ -26,7 +26,7 @@ const ExpenseMenu = () => {
 
     return (
         <>
-            <div id="addX" className="hero min-h-screen bg-base-200 mb-10">
+            <div id="addX" className="hero min-h-screen bg-base-200 pb-10">
                 <div className="hero-content text-center">
                     <div className="">
                         <h1 className="text-4xl font-bold my-8">Add Expense</h1>
@@ -172,7 +172,7 @@ const ExpenseMenu = () => {
                                             <button className="btn bg-secondary border-none outline text-center w-36 hover:opacity-40 ">Attach File</button>
                                         </div>
 
-                                        <p className={"text-sm underline cursor-pointer mt-2 hover:opacity-90 " + ((categoryId < 0) ? "opacity-60 hover:opacity-60" : "")} onClick={() => { if (categoryId >= 0) setToggle(!ontoggle) }}>Don't have a reciept? Click here.</p>
+                                        <p className={"more-info-link text-sm underline cursor-pointer mt-2 hover:opacity-90 " + ((categoryId < 0) ? "opacity-60 hover:opacity-60" : "")} onClick={() => { if (categoryId >= 0) setToggle(!ontoggle) }}>Don't have a reciept? Click here.</p>
 
                                     </form>
 

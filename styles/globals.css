@@ -38,7 +38,11 @@ input::placeholder {
 }
 
 .showcase {
-    background: linear-gradient(to top, rgba(28, 80, 130, 0.9) 20%, rgba(76, 29, 149, 0.4) 60%),
+    background: linear-gradient(
+            to top,
+            rgba(28, 80, 130, 0.9) 20%,
+            rgba(76, 29, 149, 0.4) 60%
+        ),
         url(/img/business3.jpeg) no-repeat bottom center/cover;
 }
 
@@ -58,7 +62,7 @@ https://github.com/saadeghi/daisyui/blob/master/src/components/styled/collapse.c
 }
 
 .collapse-title {
-    @apply col-start-1 col-span-2 row-start-1;
+    @apply col-span-2 col-start-1 row-start-1;
 }
 
 .collapse > input[type="checkbox"] {
@@ -67,18 +71,20 @@ https://github.com/saadeghi/daisyui/blob/master/src/components/styled/collapse.c
 }
 
 .collapse-content {
-    @apply col-start-1 col-span-2 row-start-2 overflow-hidden;
+    @apply col-span-2 col-start-1 row-start-2 overflow-hidden;
     max-height: 0px;
 }
 
 .collapse-open .collapse-content,
-.collapse:not(.collapse-close) input[type="checkbox"]:checked ~ .collapse-content {
+.collapse:not(.collapse-close)
+    input[type="checkbox"]:checked
+    ~ .collapse-content {
     max-height: 9000px;
 }
 
 .collapse:focus:not(.collapse-close) .collapse-content,
 .collapse:focus:not(.collapse-close) :where(.collapse-content) {
-    @apply pb-0;
+    /* @apply pb-0; */
     transition: unset;
     max-height: 0px;
 }

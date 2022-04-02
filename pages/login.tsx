@@ -1,17 +1,14 @@
-import Navbar from '../components/navbar'
-import LoginContent from '../components/login-content'
+import Navbar from "../components/navbar";
+import LoginContent from "../components/login-content";
 
 const Login = () => {
+    return (
+        <>
+            <Navbar></Navbar>
 
-  return (
-    <>
-    <Navbar></Navbar>
-
-    <LoginContent></LoginContent>
-    
-    </>
-  
-  )
-}
+            <LoginContent></LoginContent>
+        </>
+    );
+};
 
 export default Login;

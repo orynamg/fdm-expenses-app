@@ -1,50 +1,41 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import ExpenseMenu from '../components/expense-menu'
-import Navbar from '../components/navbar'
-import Showcase from '../components/showcase'
-import LoginContent from '../components/login-content'
-import Footer from '../components/footer'
-import { useContext } from 'react'
-import { UserContext } from '../lib/context'
-
-
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import ExpenseMenu from "../components/expense-menu";
+import Navbar from "../components/navbar";
+import Showcase from "../components/showcase";
+import LoginContent from "../components/login-content";
+import Footer from "../components/footer";
+import { useContext } from "react";
+import { UserContext } from "../lib/context";
 
 const Home: NextPage = () => {
-  const { user, username } = useContext(UserContext)
-  console.log(username)
+    const { user, username } = useContext(UserContext);
+    console.log(username);
 
-  return (
-    <>
+    return (
+        <>
+            {!username && (
+                <>
+                    <LoginContent></LoginContent>
 
-      {
-        !username && (
-          <>
-            <LoginContent></LoginContent>
+                    <Footer></Footer>
+                </>
+            )}
 
-            <Footer></Footer>
-          </>
-        )
-      }
+            {username && (
+                <>
+                    <Navbar></Navbar>
 
-      {
-        username && (
-          <>
-            <Navbar></Navbar>
+                    <Showcase></Showcase>
 
-            <Showcase></Showcase>
+                    <ExpenseMenu></ExpenseMenu>
 
-            <ExpenseMenu></ExpenseMenu>
-
-
-          </>
-
-        )
-      }
-
-    </>
-  )
-}
+                    <Footer></Footer>
+                </>
+            )}
+        </>
+    );
+};
 
 export default Home;
