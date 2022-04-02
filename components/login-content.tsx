@@ -6,8 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 const LoginContent = () => {
-    const { user, username } = useContext(UserContext);
-    console.log(username);
+    const { user } = useContext(UserContext);
 
     return (
         <div className="flex h-screen">
@@ -29,7 +28,7 @@ const LoginContent = () => {
             <div className="bg-base flex w-1/2 flex-col items-center justify-center">
                 <form className="bg-base">
                     <h1 className="mb-1 text-3xl font-bold text-[#d4d4d4]">
-                        Hello {username}
+                        Hello Again
                     </h1>
                     <p className="mb-7 text-lg font-normal text-blue-500">
                         Welcome Back

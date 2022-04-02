@@ -10,12 +10,11 @@ import { useContext } from "react";
 import { UserContext } from "../lib/context";
 
 const Home: NextPage = () => {
-    const { user, username } = useContext(UserContext);
-    console.log(username);
+    const { user } = useContext(UserContext);
 
     return (
         <>
-            {!username && (
+            {!user && (
                 <>
                     <LoginContent></LoginContent>
 
@@ -23,7 +22,7 @@ const Home: NextPage = () => {
                 </>
             )}
 
-            {username && (
+            {user && (
                 <>
                     <Navbar></Navbar>
 

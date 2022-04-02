@@ -7,8 +7,7 @@ import { auth, provider } from "../lib/firebase";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 const Navbar = () => {
-    const { user, username } = useContext(UserContext);
-    console.log(username);
+    const { user } = useContext(UserContext);
 
     return (
         <>
@@ -22,7 +21,7 @@ const Navbar = () => {
                 </div>
                 <div className="flex-none">
                     {/* User not logged in */}
-                    {!username && (
+                    {!user && (
                         <ul className="menu menu-horizontal p-0">
                             <li>
                                 <Link href="/login">Login</Link>
@@ -30,7 +29,7 @@ const Navbar = () => {
                         </ul>
                     )}
                     {/* User logged in */}
-                    {username && (
+                    {user && (
                         <ul className="menu menu-horizontal p-0">
                             <li>
                                 <Link href="/">Home</Link>
@@ -45,7 +44,7 @@ const Navbar = () => {
                                 <Link href="/history">View History</Link>
                             </li>
 
-                            <div className="dropdown dropdown-end ml-3">
+                            <div className="dropdown-end dropdown ml-3">
                                 <label
                                     tabIndex={0}
                                     className="avatar btn btn-ghost btn-circle">
@@ -58,7 +57,7 @@ const Navbar = () => {
                                     tabIndex={0}
                                     className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow">
                                     <li>
-                                        <Link href={`/${username}`}>
+                                        <Link href={`/${user.email}`}>
                                             <a className="justify-between">
                                                 Profile
                                                 {/* <span className="badge">New</span> */}
