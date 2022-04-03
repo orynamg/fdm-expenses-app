@@ -49,7 +49,7 @@ const Navbar = () => {
                                     tabIndex={0}
                                     className="avatar btn btn-ghost btn-circle">
                                     <div className="w-10 rounded-full">
-                                        <img src="https://api.lorem.space/image/face?hash=33791" />
+                                        <img src={user.photoURL} />
                                     </div>
                                 </label>
 
