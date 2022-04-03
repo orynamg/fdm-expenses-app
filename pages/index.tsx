@@ -14,25 +14,13 @@ const Home: NextPage = () => {
 
     return (
         <>
-            {!user && (
-                <>
-                    <LoginContent></LoginContent>
+            <Navbar></Navbar>
 
-                    <Footer></Footer>
-                </>
-            )}
+            <Showcase></Showcase>
 
-            {user && (
-                <>
-                    <Navbar></Navbar>
+            <ExpenseMenu></ExpenseMenu>
 
-                    <Showcase></Showcase>
-
-                    <ExpenseMenu></ExpenseMenu>
-
-                    <Footer></Footer>
-                </>
-            )}
+            <Footer></Footer>
         </>
     );
 };

@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, firestore } from "../lib/firebase";
 import { doc, onSnapshot } from "firebase/firestore";
+import LoginContent from "../components/login-content";
+import Footer from "../components/footer";
 
 function MyApp({ Component, pageProps }: AppProps) {
     const [user] = useAuthState(auth);
@@ -27,7 +29,15 @@ function MyApp({ Component, pageProps }: AppProps) {
 
     return (
         <UserContext.Provider value={{ user }}>
-            <Component {...pageProps} />
+            {user && <Component {...pageProps} />}
+
+            {!user && (
+                <>
+                    <LoginContent></LoginContent>
+
+                    <Footer></Footer>
+                </>
+            )}
         </UserContext.Provider>
     );
 }
